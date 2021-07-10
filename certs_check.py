@@ -30,7 +30,7 @@ def describe_certificate(client, arn):
     except:
         pass
 
-credential_file_path = "C:\\Users\\4040187\\.aws\\credentials"
+credential_file_path = "SEU DIRETÓRIO do credentials"
 profiles = get_profiles_from_file(credential_file_path)
 
 for profile in profiles:
