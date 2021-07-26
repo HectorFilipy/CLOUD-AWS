@@ -1,7 +1,9 @@
 # SCRIPTS PARA AWS
-Script que coleta todos os certificados da sua conta AWS, exportando para um arquivo .TXT.
+Script que coleta todos os certificados da sua conta AWS.
 
-O output.py ler o arquivo TXT e converte para .JSON
+Ao executar o output.py ele executa o script certs_check.py e exporta para TXT.
+
+Ao executar o output_json.py ele ler o arquivo TXT e converte para JSON.
 
 # AWS List Resources
 
