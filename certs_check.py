@@ -41,7 +41,3 @@ for profile in profiles:
         describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationMethod'],
         describe_certificate(client, cert_arn)['Certificate']['Status'],
         describe_certificate(client, cert_arn)['Certificate']['NotAfter'])
-        #print("Status: ",describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationStatus'])
-        #print("Metodo",describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationMethod'])
-        #print("Status",describe_certificate(client, cert_arn)['Certificate']['Status'])
-        #print("Validade",describe_certificate(client, cert_arn)['Certificate']['NotAfter'])
