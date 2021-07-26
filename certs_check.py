@@ -35,16 +35,13 @@ profiles = get_profiles_from_file(credential_file_path)
 
 for profile in profiles:
     session = boto3.Session(profile_name=profile)
-    client = session.client("acm", region_name="sa-east-1")
+    client = session.client("acm", region_name="us-east-1")
     for cert_arn in get_certs_arn_list(client):
-        try:
-            print("{")
-            print("\"Dominio\": ","\"",describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['DomainName'],"\",")
-            #print("Status: ",describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationStatus'])
-            print("\"Metodo\": ","\"",describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationMethod'],"\",")
-            print("\"Status\": ","\"",describe_certificate(client, cert_arn)['Certificate']['Status'],"\",")
-            print("\"Validade\": ","\"",describe_certificate(client, cert_arn)['Certificate']['NotAfter'],"\"")
-            print("}")
-        except:
-            print("\"Renovacao\": ","\"",describe_certificate(client, cert_arn)['Certificate']['RenewalEligibility'],"\"")
-            print("}")
+        print(describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['DomainName'],
+        describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationMethod'],
+        describe_certificate(client, cert_arn)['Certificate']['Status'],
+        describe_certificate(client, cert_arn)['Certificate']['NotAfter'])
+        #print("Status: ",describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationStatus'])
+        #print("Metodo",describe_certificate(client, cert_arn)['Certificate']['DomainValidationOptions'][0]['ValidationMethod'])
+        #print("Status",describe_certificate(client, cert_arn)['Certificate']['Status'])
+        #print("Validade",describe_certificate(client, cert_arn)['Certificate']['NotAfter'])
